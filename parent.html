@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Parent</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,900&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+        }
+
+
+    </style>
+
+</head>
+
+<body>
+
+    <iframe id="iframe" src="child.html"></iframe>
+
+    <script>
+    window.onmessage = (e) => {
+        if (e.data.hasOwnProperty("frameHeight")) {
+            document.getElementById("iframe").style.height = `${e.data.frameHeight + 30}px`;
+        }
+    };
+    </script>
+
+</body>
+</html>

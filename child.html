@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Child</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700,900&display=swap" rel="stylesheet">
+
+    <style>
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            font-family: 'Nunito', sans-serif;
+            font-size: 1rem;
+        }
+
+        section {
+            border: 1px solid #d8d8d8;
+            padding: 1rem;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <section id="container">
+
+        <h1>Hello!</h1>
+  
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sit amet porttitor eget dolor morbi. Adipiscing elit ut aliquam purus sit. Tempor nec feugiat nisl pretium fusce id. Vestibulum lectus mauris ultrices eros in. Elit at imperdiet dui accumsan. Donec adipiscing tristique risus nec feugiat in fermentum posuere. Scelerisque eleifend donec pretium vulputate sapien nec sagittis. Sem et tortor consequat id porta nibh venenatis cras sed. Posuere lorem ipsum dolor sit amet consectetur. Faucibus purus in massa tempor nec. Nullam eget felis eget nunc. Varius duis at consectetur lorem donec massa sapien faucibus et. Purus viverra accumsan in nisl. Pharetra sit amet aliquam id diam maecenas. Velit aliquet sagittis id consectetur purus ut faucibus pulvinar elementum. Habitant morbi tristique senectus et netus et malesuada fames.</p>
+
+    </section>
+
+    <script>
+
+        let height;
+
+        const sendPostMessage = () => {
+            if (height !== document.getElementById('container').offsetHeight) {
+                height = document.getElementById('container').offsetHeight;
+            window.parent.postMessage({
+                frameHeight: height
+            }, '*');
+            console.log(height);
+            }
+        }
+
+        window.onload = () => sendPostMessage();
+        window.onresize = () => sendPostMessage();
+
+    </script>
+
+</body>
+</html>
